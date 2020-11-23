@@ -1,0 +1,25 @@
+1. 개발 환경 구축
+ -목표: 파이썬,파이썬웹,데이터수집/크롤링,미니프로젝트
+ -향후: 머신러닝,딥러닝(AI),하둡등(빅데이터처리)
+ -파이썬: 
+  -기본 ide  :python.org -> 설치(로컬PC)
+             -> 리눅스상에서 설치 
+                (도커(가상환경:로컬) or AWS(아마존)
+  -풀패키지설치:anaconda or miniconda
+             -> 필요한 모든환경,패키지를 다 설치 
+             -> 설치(로컬PC)
+  -클라우드   :구글의 colab등(브라우저에 접속하여 개발)
+             -> 제공받은 환경에서 개발
+             -> GPU, TPU등 지원(12시간만)
+2. 자료실
+  - https://drive.google.com/drive/folders/1CrS_2PEqKMqDdzTc03f0L6941-dNsY5n?usp=sharing
+
+
+
+
+   
+
+
+
+  
+ 
