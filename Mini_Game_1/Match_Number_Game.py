@@ -8,6 +8,7 @@ VERSION = "V 1.0"
 game_start_prompt = 'Enjoy Custom Game World'
 print( game_start_prompt )
 
+
 # TODO step2
 '''
 - "게임 제목을 입력하세요, 단 20자 이내로 입력 가능합니다." 
@@ -34,6 +35,7 @@ if not gameTitle:
       break
 
   print( '게임 제목은: ', gameTitle )
+
 
 # TODO step3
 '''
@@ -76,5 +78,82 @@ print( '-'*p_max_len )
 print('\n 게임이 시작됩니다. AI가 숫자를 준비합니다. \n')
 
 # TODO Step5
+'''
+  - AI가 1 ~ 100 사이의 임의의 수를 정수로 하나 **랜덤**하게
+  생성한다.
+  - "1<= x <=100에서 값을 하나 선택하세요"
+  - 사용자는 1 ~ 100 사이에 값을 입력한다.
+  - 입력을 안하고 Enter
+  - 1보다 작거나, 100보다 큰값을 넣고 Enter
+  - 숫자가 될수 없는 값을 넣고 Enter
+  - 정상적인 값을 입력하고 Enter
+'''
 
-# TODO Step6
+msg = "1 <= x <= 100에서 값을 하나 선택하세요: "
+play_game = True # 재시작 여부
+
+while play_game:
+  tryCnt = 0
+  import random
+  ai_number = random.randint(1,100)
+
+  isSuccess = False
+  while not isSuccess:
+    while True: 
+      guest_number = input(msg).strip()
+
+      if not guest_number:
+        print("정확하게 입력하세요")
+        continue
+
+      if not guest_number.isnumeric():
+        print("{0}는 숫자가 아니거나, 대상이 아닙니다.".format(guest_number))
+        continue
+
+      guest_number = int(guest_number)
+      if guest_number < 1 or guest_number > 100:
+        print("허용하는 값의 범위를 넘어갔습니다.")
+        continue
+      break
+    tryCnt += 1  
+
+
+  # TODO Step6
+  '''
+    - 판정 : 작으면 작다. 크면 크다라고 출력하고 다시 입력 대기를 한다
+    - 만약, 정답을 맞추면 총 시도횟수를 10에서 빼서 10을 곱한다. 이것을 이번 판의 획득 점수로 표현한다.
+    - "총 5회 시도해서 50점을 획득하였습니다. 다시하시겠습니까?"
+      - yes : 다시 게임시작
+      - no : 게임종료
+    - 게임종료 : good bye~
+  '''
+  if ai_number > guest_number:
+    print("크다")
+    pass
+  elif ai_number < guest_number:
+    print("작다")
+    pass
+  else:
+    isSuccess = True
+
+  # 정답을 맞춘 경우 점수 산정
+  if isSuccess:
+    point = (10 - tryCnt) * 10
+
+    if point < 0:
+      point =0
+
+    print(f"총 {tryCnt}회 시도해서 {point}점을 획득하였습니다. 다시하시겠습니까?")
+
+    # 재시작 여부 물어보기
+    while True:
+      choice = input("yes : 다시게임시작, no : 게임종료").strip().lower()
+      if choice == 'yes' or choice == 'y':
+        break
+      elif choice == 'no' or choice == 'n':
+        
+        break
+      else:
+        print("정확하게 입력하세요")
+
+print("good bye~~!")
