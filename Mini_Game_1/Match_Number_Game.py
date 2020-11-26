@@ -118,42 +118,44 @@ while play_game:
     tryCnt += 1  
 
 
-  # TODO Step6
-  '''
-    - 판정 : 작으면 작다. 크면 크다라고 출력하고 다시 입력 대기를 한다
-    - 만약, 정답을 맞추면 총 시도횟수를 10에서 빼서 10을 곱한다. 이것을 이번 판의 획득 점수로 표현한다.
-    - "총 5회 시도해서 50점을 획득하였습니다. 다시하시겠습니까?"
-      - yes : 다시 게임시작
-      - no : 게임종료
-    - 게임종료 : good bye~
-  '''
-  if ai_number > guest_number:
-    print("크다")
-    pass
-  elif ai_number < guest_number:
-    print("작다")
-    pass
-  else:
-    isSuccess = True
+    # TODO Step6
+    '''
+      - 판정 : 작으면 작다. 크면 크다라고 출력하고 다시 입력 대기를 한다
+      - 만약, 정답을 맞추면 총 시도횟수를 10에서 빼서 10을 곱한다. 이것을 이번 판의 획득 점수로 표현한다.
+      - "총 5회 시도해서 50점을 획득하였습니다. 다시하시겠습니까?"
+        - yes : 다시 게임시작
+        - no : 게임종료
+      - 게임종료 : good bye~
+    '''
+    if ai_number > guest_number:
+      print("크다")
+      pass
+    elif ai_number < guest_number:
+      print("작다")
+      pass
+    else:
+      isSuccess = True
+      pass
 
-  # 정답을 맞춘 경우 점수 산정
-  if isSuccess:
-    point = (10 - tryCnt) * 10
+    # 정답을 맞춘 경우 점수 산정
+    if isSuccess:
+      point = (10 - tryCnt) * 10
 
-    if point < 0:
-      point =0
+      if point < 0:
+        point =0
 
-    print(f"총 {tryCnt}회 시도해서 {point}점을 획득하였습니다. 다시하시겠습니까?")
+      print(f"총 {tryCnt}회 시도해서 {point}점을 획득하였습니다. 다시하시겠습니까?: ")
 
-    # 재시작 여부 물어보기
-    while True:
-      choice = input("yes : 다시게임시작, no : 게임종료").strip().lower()
-      if choice == 'yes' or choice == 'y':
-        break
-      elif choice == 'no' or choice == 'n':
-        
-        break
-      else:
-        print("정확하게 입력하세요")
+      # 재시작 여부 물어보기
+      while True:
+        choice = input("yes : 다시게임시작, no : 게임종료").strip().lower()
+        if choice == 'yes' or choice == 'y':
+          break
+        elif choice == 'no' or choice == 'n':
+          play_game = False
+          break
+        else:
+          print("정확하게 입력하세요")
+          pass
 
 print("good bye~~!")
