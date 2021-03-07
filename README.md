@@ -1,4 +1,6 @@
 # 파이썬 기초
+- 작성자 : dch9610
+- email : edu.chang96@gmail.com
 
 1. [파이썬 개요](https://github.com/dch9610/Python_-Foundation/blob/master/1.파이썬개요_(1주차_1일).ipynb)
     - 파이썬 구성
